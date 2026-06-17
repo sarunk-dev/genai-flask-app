@@ -1,4 +1,4 @@
-#!/home/project/genai_flask_app/venv/bin/python3.11
+#!/home/project/genai-flask-app/venv/bin/python3.11
 
 import sys
 import json
