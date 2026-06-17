@@ -39,7 +39,7 @@ def get_ai_response(model, template, system_prompt, user_prompt):
     chain = template | model
     return chain.invoke({'system_prompt':system_prompt, 'user_prompt':user_prompt})
 
-# Model-specific response functions
+# Model-specific response functionss
 def llama_response(system_prompt, user_prompt):
     return get_ai_response(llama_llm, llama_template, system_prompt, user_prompt)
 
