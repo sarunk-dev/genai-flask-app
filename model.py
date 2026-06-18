@@ -1,4 +1,3 @@
-from langchain_ibm import WatsonxLLM
 from langchain_ibm import ChatWatsonx
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
