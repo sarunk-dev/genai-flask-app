@@ -9,7 +9,8 @@ from config import PARAMETERS, CREDENTIALS, LLAMA_MODEL_ID, GRANITE_MODEL_ID, MI
 class AIResponse(BaseModel):
     summary: str = Field(description="Summary of the user's message")
     sentiment: int = Field(description="Sentiment score from 0 (negative) to 100 (positive)")
-    response: str = Field(description="Suggested response to the user")
+    category: str = Field(description="Category of the inquiry (e.g., billing, technical, general)")
+    action: str = Field(description="Recommended action for the support representative")
 
 # JSON output parser
 json_parser = JsonOutputParser(pydantic_object=AIResponse)

@@ -6,15 +6,26 @@ def call_all_models(system_prompt, user_prompt):
     mistral_result = mistral_response(system_prompt, user_prompt)
 
         # Debug: show complete returned object
-    print("Llama Raw Output:")
-    print(llama_result)
-    print("..................................")
-    print("Llama Response:\n", llama_result["response"])
-    print("\nGranite Response:\n", granite_result["response"])
-    print("\nMistral Response:\n", mistral_result["response"])
 
-call_all_models(
-    "You are a helpful assistant who provides concise and accurate answers",
-    "What is the capital of Canada? Tell me a cool fact about it as well"
-)
+    print("Llama Result:")
+    print("Summary:", llama_result["summary"])
+    print("Sentiment:", llama_result["sentiment"])
+    print("Category:", llama_result["category"])
+    print("Action:", llama_result["action"])
+
+system_prompt = """
+You are a customer support assistant.
+
+Analyze the customer's message and return:
+- summary
+- sentiment
+- category
+- action
+
+The action should be a clear recommendation for the support representative to resolve the issue.
+"""
+
+user_prompt = "I was charged twice for my subscription this month."
+
+call_all_models(system_prompt, user_prompt) 
 
