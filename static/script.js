@@ -118,7 +118,12 @@ async function sendMessage(content, model) {
         } else {
             aiMessage = {
                 id: (Date.now() + 1).toString(),
-                content: data.response,
+                content: `
+                Summary: ${data.summary}
+                Category: ${data.category}
+                Sentiment: ${data.sentiment}
+                Action: ${data.action}
+                `,
                 type: 'ai',
                 model: model,
                 duration: data.duration,
@@ -241,3 +246,4 @@ function clearChat() {
 function scrollToBottom() {
     messagesEnd.scrollIntoView({ behavior: 'smooth' });
 }
+
