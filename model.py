@@ -3,7 +3,15 @@ from langchain_ibm import ChatWatsonx
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 from pydantic import BaseModel, Field
-from config import PARAMETERS, CREDENTIALS, LLAMA_MODEL_ID, GRANITE_MODEL_ID, MISTRAL_MODEL_ID
+from config import (
+    PARAMETERS,
+    WATSONX_API_KEY,
+    WATSONX_PROJECT_ID,
+    WATSONX_URL,
+    LLAMA_MODEL_ID,
+    GRANITE_MODEL_ID,
+    MISTRAL_MODEL_ID
+)
 
 # Define JSON output structure
 class AIResponse(BaseModel):
@@ -19,8 +27,9 @@ json_parser = JsonOutputParser(pydantic_object=AIResponse)
 def initialize_model(model_id):
     return ChatWatsonx(
         model_id=model_id,
-        url="https://us-south.ml.cloud.ibm.com",
-        project_id="skills-network",
+        url=WATSONX_URL,
+        project_id=WATSONX_PROJECT_ID,
+        api_key=WATSONX_API_KEY,
         params=PARAMETERS
     )
 

@@ -18,7 +18,7 @@ const loadingSpinner = document.getElementById('loadingSpinner');
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
     // Set default model
-    modelSelect.value = 'llama3';
+    modelSelect.value = 'llama';
     
     // Setup event listeners
     setupEventListeners();
