@@ -12,7 +12,7 @@ from config import (
     MISTRAL_MODEL_ID
 )
 
-# Define JSON output structuree
+# Define JSON output structure
 class AIResponse(BaseModel):
     summary: str = Field(description="Summary of the user's message")
     sentiment: int = Field(description="Sentiment score from 0 (negative) to 100 (positive)")
